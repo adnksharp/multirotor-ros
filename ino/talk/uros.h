@@ -1,26 +1,5 @@
-#include <micro_ros_arduino.h>
-#include <stdio.h>
-
-#include <rcl/rcl.h>
-#include <rcl/error_handling.h>
-#include <rclc/rclc.h>
-#include <rclc/executor.h>
-
-#include <std_msgs/msg/int32.h>
-
 #include "config.h"
 //#include "utils.h"
-
-rcl_publisher_t publisher;
-std_msgs__msg__Int32 msg;
-rclc_executor_t executor;
-rclc_support_t support;
-rcl_allocator_t allocator;
-rcl_node_t node;
-rcl_timer_t timer;
-
-#define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){err(LED);}}
-#define RCSOFTCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){}}
 
 void publish(rcl_timer_t * timer, int64_t last_call_time)
 {  
@@ -54,7 +33,12 @@ struct UROS {
 
 	void init()
 	{
-		set_microros_transports();
+		#if __has_include("wificfg.h")
+			#include "wificfg.h"
+			set_microros_wifi_transports(ssid, pass, host, port);
+		#else
+			set_microros_transports();
+		#endif
 		allocator = rcl_get_default_allocator();
 
 		rcl_init_options_t opts = rcl_get_zero_initialized_init_options();
