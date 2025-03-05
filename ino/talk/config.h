@@ -24,7 +24,7 @@
 #define DOMAIN_ID 49
 
 // uROS configurations
-char *NODE_NAME = "tester";
+char *NODE_NAME = "ESP32";
 //char *SUB_TOPIC = "driver/listener";
 char *MPU_ACCEL_TOPIC = "driver/mpu/accel";
 char *MPU_GYRO_TOPIC = "driver/mpu/gyro";
