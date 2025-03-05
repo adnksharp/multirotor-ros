@@ -5,8 +5,8 @@
 #include <rcl/error_handling.h>
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
-#include <std_msgs/msg/int32.h>
-#include <std_msgs/msg/int32_multi_array.h>
+//#include <std_msgs/msg/int32.h>
+//#include <std_msgs/msg/int32_multi_array.h>
 #include <std_msgs/msg/float32.h>
 #include <std_msgs/msg/float32_multi_array.h>
 
@@ -25,7 +25,6 @@
 
 // uROS configurations
 char *NODE_NAME = "tester";
-//char *PUB_TOPIC = "driver/talker";
 //char *SUB_TOPIC = "driver/listener";
 char *MPU_ACCEL_TOPIC = "driver/mpu/accel";
 char *MPU_GYRO_TOPIC = "driver/mpu/gyro";

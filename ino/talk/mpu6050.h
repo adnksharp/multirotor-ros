@@ -14,20 +14,22 @@ struct MPU
 		mpu.setFilterBandwidth(MPU6050_BAND_5_HZ);
 	}
 
-	float* get_accel() 
+	void get_accel(float *accel) 
 	{
 		sensors_event_t a, g, temp;
 		mpu.getEvent(&a, &g, &temp);
-		float accel[3] = {a.acceleration.x, a.acceleration.y, a.acceleration.z};
-		return accel;
+		accel[0] = a.acceleration.x;
+		accel[1] = a.acceleration.y;
+		accel[2] = a.acceleration.z;
 	}
 
-	float* get_gyro() 
+	void get_gyro(float *gyro) 
 	{
 		sensors_event_t a, g, temp;
 		mpu.getEvent(&a, &g, &temp);
-		float gyro[3] = {g.gyro.x, g.gyro.y, g.gyro.z};
-		return gyro;
+		gyro[0] = g.gyro.x;
+		gyro[1] = g.gyro.y;
+		gyro[2] = g.gyro.z;
 	}
 
 	float get_temp() 
