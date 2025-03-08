@@ -3,6 +3,12 @@ from rclpy.node import Node
 
 from std_msgs.msg import Float32, Float32MultiArray
 
+std_out: dict = {
+    'temp': 0.0,
+    'accel': [0.0, 0.0, 0.0],
+    'gyro': [0.0, 0.0, 0.0]
+}
+
 class Listener(Node):
     def __init__(self):
         super().__init__('listener')
@@ -31,18 +37,23 @@ class Listener(Node):
         self.gyro
 
     def temp_reader(self, arg):
-        self.get_logger().info('temp: %f' % arg.data)
+        std_out['temp'] = arg.data
+        self.get_logger().info('%s' % std_out)
     
     def accel_reader(self, arg):
-        self.get_logger().info('accel: %s' % arg.data)
+        for i in range(3):
+            std_out['accel'][i] = arg.data[i]
+        self.get_logger().info('%s' % std_out)
     
     def gyro_reader(self, arg):
-        self.get_logger().info('guro: %s' % arg.data)
+        for i in range(3):
+            std_out['gyro'][i] = arg.data[i]
+        self.get_logger().info('%s' % std_out)
 
 def main(args = None):
     rclpy.init(args = args)
     echo = Listener()
-
+    
     try:
         rclpy.spin(echo)
         echo.destroy_node()
