@@ -42,7 +42,7 @@ struct UROS
     void create_f32(const char * topic_name, rcl_publisher_t & publisher_f32)
 	{
         std_msgs__msg__Float32 msg;
-        RCCHECK(rclc_publisher_init_best_effort(
+        RCCHECK(rclc_publisher_init_default(
             &publisher_f32,
             &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),
@@ -53,7 +53,7 @@ struct UROS
     void create_multi_f32(const char * topic_name, size_t capacity, rcl_publisher_t & publisher_multi_f32)
 	{
         std_msgs__msg__Float32MultiArray msg;
-        RCCHECK(rclc_publisher_init_best_effort(
+        RCCHECK(rclc_publisher_init_default(
             &publisher_multi_f32,
             &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32MultiArray),
