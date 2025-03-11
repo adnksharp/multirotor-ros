@@ -1,5 +1,11 @@
+# kicad backups
+electronic/electronic-backups
+electronic/libraries
+
+
 # wifi settings
 wificfg.h
+
 # ROS workspace
 ros-ws/build
 ros-ws/install
