@@ -1,7 +1,7 @@
 # kicad backups
 electronic/electronic-backups
 electronic/libraries
-
+fp-info-cache
 
 # wifi settings
 wificfg.h
