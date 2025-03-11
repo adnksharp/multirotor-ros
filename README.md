@@ -189,7 +189,7 @@ Plataforma de adquisición de datos de un multirotor con ESP32 y ROS2
 
 ```shell
 mkdir ~/Proyectos
-cd ~/Proyeectos
+cd ~/Proyectos
 git clone https://github.com/adnksharp/multirotor-ros.git
 ```
 
@@ -197,20 +197,20 @@ git clone https://github.com/adnksharp/multirotor-ros.git
 
 ```shell
 run-ros
-cd ~/Proyeectos/multirotor-ros/ros-ws
+cd ~/Proyectos/multirotor-ros/ros-ws
 colcon build
 ```
 
 ## Compilar sketch de Arduino
 
-`Ctrl + O` para abrir el archivo `~/Proyeectos/multirotor-ros/ino/talk/talk.ino` desde la IDE de Arduino
+`Ctrl + O` para abrir el archivo `~/Proyectos/multirotor-ros/ino/talk/talk.ino` desde la IDE de Arduino
 
 > [!WARNING]
 > Actualmente solo las versiones `iron` y `humble` de `uROS` están actualizadas a la versión `2.0.7`, es posible que la IDE de Arduino recomiende actualizar la librería `uROS` a esa versión.
 > Ignorar la actualización y compilar el sketch.
 
 ### Configuración de la tarjeta
-Crear un archivo en la carpeta `~/Proyeectos/multirotor-ros/ino/talk/` con el nombre
+Crear un archivo en la carpeta `~/Proyectos/multirotor-ros/ino/talk/` con el nombre
 `wificfg.h` y agregar las siguientes líneas
 
 ```cpp
@@ -238,14 +238,14 @@ run micro_ros_agent micro_ros_agent udp4 --port 8888
 ### Bash
 ```shell
 run-ros
-source ~/Proyeectos/multirotor-ros/ros-ws/install/setup.bash
+source ~/Proyectos/multirotor-ros/ros-ws/install/setup.bash
 ros2 run main listener
 ```
 
 ### Zsh
 ```shell
 run-ros
-source ~/Proyeectos/multirotor-ros/ros-ws/install/setup.zsh
+source ~/Proyectos/multirotor-ros/ros-ws/install/setup.zsh
 ros2 run main listener
 ```
 
