@@ -1,4 +1,7 @@
 (sym_lib_table
   (version 7)
   (lib (name "DHT22")(type "KiCad")(uri "${KIPRJMOD}/libraries/DHT22.kicad_sym")(options "")(descr ""))
+  (lib (name "NEO-6M-GPS")(type "KiCad")(uri "${KIPRJMOD}/libraries/NEO-6M-GPS.kicad_sym")(options "")(descr ""))
+  (lib (name "RT9193-33GB")(type "KiCad")(uri "${KIPRJMOD}/libraries/RT9193-33GB.kicad_sym")(options "")(descr ""))
+  (lib (name "custom")(type "KiCad")(uri "${KIPRJMOD}/libraries/custom.kicad_sym")(options "")(descr ""))
 )
