@@ -4,4 +4,6 @@
   (lib (name "NEO-6M-GPS")(type "KiCad")(uri "${KIPRJMOD}/libraries/NEO-6M-GPS.kicad_sym")(options "")(descr ""))
   (lib (name "RT9193-33GB")(type "KiCad")(uri "${KIPRJMOD}/libraries/RT9193-33GB.kicad_sym")(options "")(descr ""))
   (lib (name "custom")(type "KiCad")(uri "${KIPRJMOD}/libraries/custom.kicad_sym")(options "")(descr ""))
+  (lib (name "HC-SR04")(type "KiCad")(uri "${KIPRJMOD}/libraries/HC-SR04/HC-SR04.kicad_sym")(options "")(descr ""))
+  (lib (name "DEVKIT_V1_ESP32-WROOM-32")(type "KiCad")(uri "/home/akey/Unix/Descargas/KAD/DEVKIT_V1_ESP32-WROOM-32/DEVKIT_V1_ESP32-WROOM-32.kicad_sym")(options "")(descr ""))
 )
