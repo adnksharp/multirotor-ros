@@ -1,5 +1,7 @@
 # multirotor-ros
 
+![](https://i.imgur.com/7XxNan8.png)
+
 Plataforma de adquisición de datos de un multirotor con ESP32 y ROS2
 
 ## Requisitos
