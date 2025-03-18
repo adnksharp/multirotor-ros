@@ -1,4 +1,4 @@
-# multirotor-ros
+# Multirotor-ROS
 
 ![](https://i.imgur.com/7XxNan8.png)
 
