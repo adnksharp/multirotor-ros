@@ -117,6 +117,16 @@ Plataforma de adquisición de datos de un multirotor con ESP32 y ROS2
 </details>
 
 <details>
+  <summary>gazebo</summary>
+
+   #### Ubuntu 24
+  ```shell
+  sudo apt-get install ros-${ROS_DISTRO}-ros-gz
+  ```
+
+</details>
+
+<details>
   <summary>uROS</summary>
 
   ```shell
@@ -203,6 +213,31 @@ cd ~/Proyectos/multirotor-ros/ros-ws
 colcon build
 ```
 
+<details>
+  <summary>Bash</summary>
+
+```shell
+source install/setup.bash
+ ```
+
+</details>
+
+<details>
+  <summary>Zsh</summary>
+
+```shell
+source install/setup.zsh
+ ```
+
+</details>
+
+## Lanzar gazebo
+
+```shell
+ros2 launch fdrone gazebo.launch.py
+```
+
+<!--
 ## Compilar sketch de Arduino
 
 `Ctrl + O` para abrir el archivo `~/Proyectos/multirotor-ros/ino/talk/talk.ino` desde la IDE de Arduino
@@ -252,3 +287,4 @@ ros2 run main listener
 ```
 
 ![](img/out2.svg)
+-->
