@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/BASE_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/BASE_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
       </geometry>
     </collision>
   </link>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/RT_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/RT_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
       </geometry>
     </collision>
   </link>
@@ -125,7 +125,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/RB_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
       </geometry>
       <material
         name="">
@@ -139,7 +139,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/RB_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
       </geometry>
     </collision>
   </link>
@@ -184,7 +184,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/LB_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
       </geometry>
       <material
         name="">
@@ -198,7 +198,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/LB_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
       </geometry>
     </collision>
   </link>
@@ -243,7 +243,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/LT_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
       </geometry>
       <material
         name="">
@@ -257,7 +257,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/LT_LINK.STL" />
+          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
       </geometry>
     </collision>
   </link>
