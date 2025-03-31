@@ -17,8 +17,8 @@ def generate_launch_description() -> LaunchDescription:
     # Argumento para habilitar/deshabilitar GUI
     gui_arg = DeclareLaunchArgument(
         name='gui',
-        default_value='true',
-        choices=['true', 'false'],
+        default_value='false',  # Establecer a false para eliminar la GUI
+        choices=['false', 'true'],
         description='Flag to enable/disable the GUI'
     )
     ld.add_action(gui_arg)
@@ -38,16 +38,26 @@ def generate_launch_description() -> LaunchDescription:
         description='Path to robot urdf file relative to urdf_tutorial package')
     ld.add_action(model_arg)
 
-    # Incluir el lanzamiento de urdf_launch
+
+    # Agregar tu nodo joint_state_publisher personalizado
+    jsp_node = Node(
+        package='fdrone',
+        executable='pos_pub.py',
+        name='joint_state_publisher'
+    )
+    ld.add_action(jsp_node)
+
+    # Incluir el lanzamiento de urdf_launch, pero sin el joint_state_publisher predeterminado y sin la GUI
     ild: IncludeLaunchDescription = IncludeLaunchDescription(
         PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'display.launch.py']),
         launch_arguments={
             'urdf_package': 'fdrone',
             'urdf_package_path': LaunchConfiguration('model'),
             'rviz_config': LaunchConfiguration('rvizconfig'),
-            'jsp_gui': LaunchConfiguration('gui'),
-            'use_velocity': 'true' # Se agrega 'use_velocity': 'true'
-        }.items())
+            'jsp_gui': LaunchConfiguration('gui'),  # Usar el argumento 'gui' para desactivar la GUI
+            'use_jsp': 'false'
+        }.items()
+    )
     ld.add_action(ild)
-
+    
     return ld
