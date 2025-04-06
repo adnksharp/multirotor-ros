@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /TF1
       Splitter Ratio: 0.5
     Tree Height: 250
@@ -47,35 +48,39 @@ Visualization Manager:
       Enabled: true
       Links:
         All Links Enabled: true
-        BASE_LINK:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        LB_LINK:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LT_LINK:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         Link Tree Style: Links in Alphabetic Order
-        RB_LINK:
+        base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        RT_LINK:
+        rotor_0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        rotor_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rotor_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rotor_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Mass Properties:
         Inertia: false
         Mass: false
@@ -91,15 +96,17 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        BASE_LINK:
+        base_link:
           Value: true
-        LB_LINK:
+        rotor_0:
           Value: true
-        LT_LINK:
+        rotor_1:
           Value: true
-        RB_LINK:
+        rotor_2:
           Value: true
-        RT_LINK:
+        rotor_3:
+          Value: true
+        world:
           Value: true
       Marker Scale: 0.4000000059604645
       Name: TF
@@ -107,21 +114,22 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        BASE_LINK:
-          LB_LINK:
-            {}
-          LT_LINK:
-            {}
-          RB_LINK:
-            {}
-          RT_LINK:
-            {}
+        world:
+          base_link:
+            rotor_0:
+              {}
+            rotor_1:
+              {}
+            rotor_2:
+              {}
+            rotor_3:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: BASE_LINK
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -164,4 +172,4 @@ Window Geometry:
     collapsed: false
   Width: 1199
   X: 360
-  Y: 140
+  Y: 105

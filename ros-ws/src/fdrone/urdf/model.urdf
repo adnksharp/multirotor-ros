@@ -1,283 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="URDF.SLDASM">
-  <link
-    name="BASE_LINK">
-    <inertial>
-      <origin
-        xyz="0.00093993 0.072156 8.0388E-05"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.5 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <link
-    name="RT_LINK">
-    <inertial>
-      <origin
-        xyz="0.15852 -0.043074 0.15899"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_00"
-    type="continuous">
-    <origin
-      xyz="-0.15758 0.15891 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="RT_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
-  <link
-    name="RB_LINK">
-    <inertial>
-      <origin
-        xyz="-0.15929 -0.043074 0.15898"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_01"
-    type="continuous">
-    <origin
-      xyz="0.16023 0.1589 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="RB_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
-  <link
-    name="LB_LINK">
-    <inertial>
-      <origin
-        xyz="-0.15928 -0.043074 -0.15883"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_02"
-    type="continuous">
-    <origin
-      xyz="0.16022 -0.15891 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="LB_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
-  <link
-    name="LT_LINK">
-    <inertial>
-      <origin
-        xyz="0.15853 -0.043074 -0.15882"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_03"
-    type="continuous">
-    <origin
-      xyz="-0.15759 -0.1589 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="LT_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
+<robot name="X3">
+    <link name="world"/>
+
+	<link name="base_link">
+        <inertial>
+            <origin xyz="0.00093993 0.072156 8.0388E-05" rpy="0 0 0" />
+            <mass value="0.89737" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+		<visual name="base_link_inertia_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.5 0.1 0.1 1" />
+            </material>
+        </visual>
+		<collision name="base_link_inertia_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="world_to_base" type="fixed">
+        <parent link="world" />
+		<child link="base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    <link name="rotor_0">
+        <inertial>
+            <origin xyz="0.15852 -0.043074 0.15899" rpy="0 0 0" />
+            <mass value="0.005" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+		<visual name="rotor_0_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+		<collision name="rotor_0_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
+            </geometry>
+		</collision>
+    </link>
+    <joint name="rotor_0_joint" type="revolute">
+        <origin xyz="-0.15758 0.15891 0.11523" rpy="1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="rotor_0" />
+        <axis xyz="0 1 0" />
+        <limit effort="0.03" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+    </joint>
+    <link name="rotor_1">
+        <inertial>
+            <origin xyz="-0.15929 -0.043074 0.15898" rpy="0 0 0" />
+            <mass value="0.005" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+		<visual name="rotor_1_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+		<collision name="rotor_1_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rotor_1_joint" type="revolute">
+        <origin xyz="0.16023 0.1589 0.11523" rpy="1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="rotor_1" />
+        <axis xyz="0 1 0" />
+        <limit effort="0.03" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+    </joint>
+    <link name="rotor_2">
+        <inertial>
+            <origin xyz="-0.15928 -0.043074 -0.15883" rpy="0 0 0" />
+            <mass value="0.005" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+		<visual name="rotor_2_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+		<collision name="rotor_2_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rotor_2_joint" type="revolute">
+        <origin xyz="0.16022 -0.15891 0.11523" rpy="1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="rotor_2" />
+        <axis xyz="0 1 0" />
+        <limit effort="0.03" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+    </joint>
+    <link name="rotor_3">
+        <inertial>
+            <origin xyz="0.15853 -0.043074 -0.15882" rpy="0 0 0" />
+            <mass value="0.005" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+		<visual name="rotor_3_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+		<collision name="rotor_3_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rotor_3_joint" type="revolute">
+        <origin xyz="-0.15759 -0.1589 0.11523" rpy="1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="rotor_3" />
+        <axis xyz="0 1 0" />
+        <limit effort="0.03" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+	</joint>
+	<gazebo>
+		<plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>X3</robotNamespace>
+        <jointName>rotor_0_joint</jointName>
+        <linkName>rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>0</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>X3</robotNamespace>
+        <jointName>rotor_1_joint</jointName>
+        <linkName>rotor_1</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>1</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>X3</robotNamespace>
+        <jointName>rotor_2_joint</jointName>
+        <linkName>rotor_2</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>2</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin
+        filename="gz-sim-multicopter-motor-model-system"
+        name="gz::sim::systems::MulticopterMotorModel">
+        <robotNamespace>X3</robotNamespace>
+        <jointName>rotor_3_joint</jointName>
+        <linkName>rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>3</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin
+        filename="gz-sim-multicopter-control-system"
+        name="gz::sim::systems::MulticopterVelocityControl">
+        <robotNamespace>X3</robotNamespace>
+        <commandSubTopic>cmd_vel</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+
+        <rotorConfiguration>
+          <rotor>
+            <jointName>rotor_0_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_1_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_2_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_3_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+	</gazebo>
 </robot>

@@ -59,5 +59,31 @@ def generate_launch_description() -> LaunchDescription:
         }.items()
     )
     ld.add_action(ild)
+
+    # gz create
+    gz_node = Node(
+        package='ros_gz_sim',
+        executable='create',
+        name='spawner',
+        output='screen',
+        arguments=[
+            '-name', 'fdrone',
+            '-topic', '/robot_description',
+        ]
+    )
+    ld.add_action(gz_node)
+
+    # gz bridge
+    gz_bridge_node = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        name='gz_bridge',
+        output='screen',
+        parameters=[{'use_sim_time': True}],
+        arguments=[
+            '/fdrone/pose@geometry_msgs/msg/PoseWithCovarianceStamped[ignition.msgs.Pose_V',
+            '/fdrone/odometry@nav_msgs/msg/Odometry[ignition.msgs.Pose_V'
+        ]
+    )
     
     return ld

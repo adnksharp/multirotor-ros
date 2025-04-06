@@ -23,7 +23,7 @@ def generate_launch_description():
         package='ros_gz_sim',
         executable='create',
         arguments=[
-            '-name', 'CartesianRobot',
+            '-name', 'fdrone',
             '-x', '0.0',
             '-y', '0.0',
             '-z', '0.0',
@@ -44,8 +44,21 @@ def generate_launch_description():
         output='screen'
     )
 
+    ros_gz_bridge_node = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/cmd_vel@geometry_msgs/msg/Twist[ignition.msgs.Twist'
+        ],
+        remappings=[
+            ('/cmd_vel', '/fdrone/cmd_vel')
+        ],
+        output='screen'
+    )
+
     return LaunchDescription([
         gazebo,
         spawn,
-        publish
+        publish,
+        ros_gz_bridge_node
     ])

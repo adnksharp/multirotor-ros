@@ -24,7 +24,7 @@ class JointStatePublisher(Node):
     def timer_callback(self):
         msg = JointState()
         msg.header.stamp = self.get_clock().now().to_msg()
-        msg.name = ['JX_00', 'JX_01', 'JX_02', 'JX_03']
+        msg.name = ['rotor_0_joint', 'rotor_1_joint', 'rotor_2_joint', 'rotor_3_joint']
         msg.position = self.positions
         msg.velocity = self.velocities
         msg.effort = []
