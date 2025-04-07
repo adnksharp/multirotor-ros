@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="fdrone">
-    <link name="world"/>
-
     <link name="BASE_LINK">
         <inertial>
-            <origin xyz="0.00093993 0.072156 8.0388E-05" rpy="0 0 0" />
+            <origin xyz="0.00093993 0.0072156 8.0388E-05" rpy="0 0 0" />
             <mass value="0.89737" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
@@ -24,11 +22,6 @@
             </geometry>
         </collision>
     </link>
-    <joint name="world_to_base" type="fixed">
-        <parent link="world" />
-        <child link="BASE_LINK" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint>
     <link name="RT_LINK">
         <inertial>
             <origin xyz="0.15852 -0.043074 0.15899" rpy="0 0 0" />
