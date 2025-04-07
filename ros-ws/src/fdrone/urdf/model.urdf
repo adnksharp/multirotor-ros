@@ -1,283 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="URDF.SLDASM">
-  <link
-    name="BASE_LINK">
-    <inertial>
-      <origin
-        xyz="0.00093993 0.072156 8.0388E-05"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.5 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <link
-    name="RT_LINK">
-    <inertial>
-      <origin
-        xyz="0.15852 -0.043074 0.15899"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_00"
-    type="continuous">
-    <origin
-      xyz="-0.15758 0.15891 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="RT_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
-  <link
-    name="RB_LINK">
-    <inertial>
-      <origin
-        xyz="-0.15929 -0.043074 0.15898"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_01"
-    type="continuous">
-    <origin
-      xyz="0.16023 0.1589 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="RB_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
-  <link
-    name="LB_LINK">
-    <inertial>
-      <origin
-        xyz="-0.15928 -0.043074 -0.15883"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_02"
-    type="continuous">
-    <origin
-      xyz="0.16022 -0.15891 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="LB_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
-  <link
-    name="LT_LINK">
-    <inertial>
-      <origin
-        xyz="0.15853 -0.043074 -0.15882"
-        rpy="0 0 0" />
-      <mass
-        value="0.89737" />
-      <inertia
-        ixx="0.013314"
-        ixy="-1.3492E-05"
-        ixz="-1.4686E-05"
-        iyy="0.02478"
-        iyz="-1.493E-06"
-        izz="0.013456" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.1 0.1 0.1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="JX_03"
-    type="continuous">
-    <origin
-      xyz="-0.15759 -0.1589 0.11523"
-      rpy="1.5708 0 0" />
-    <parent
-      link="BASE_LINK" />
-    <child
-      link="LT_LINK" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="0.03"
-      velocity="870" />
-    <dynamics
-      damping="0.1"
-      friction="0.01" />
-  </joint>
+<robot name="fdrone">
+    <link name="world"/>
+
+    <link name="BASE_LINK">
+        <inertial>
+            <origin xyz="0.00093993 0.072156 8.0388E-05" rpy="0 0 0" />
+            <mass value="0.89737" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.5 0.1 0.1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="world_to_base" type="fixed">
+        <parent link="world" />
+        <child link="BASE_LINK" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    <link name="RT_LINK">
+        <inertial>
+            <origin xyz="0.15852 -0.043074 0.15899" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="JX_00" type="continuous">
+        <origin xyz="-0.15758 0.15891 0.11523" rpy="1.5708 0 0" />
+        <parent link="BASE_LINK" />
+        <child link="RT_LINK" />
+        <axis xyz="0 1 0" />
+        <limit effort="2.9" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+    </joint>
+    <link name="RB_LINK">
+        <inertial>
+            <origin xyz="-0.15929 -0.043074 0.15898" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="JX_01" type="continuous">
+        <origin xyz="0.16023 0.1589 0.11523" rpy="1.5708 0 0" />
+        <parent link="BASE_LINK" />
+        <child link="RB_LINK" />
+        <axis xyz="0 1 0" />
+        <limit effort="0.53" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+    </joint>
+    <link name="LB_LINK">
+        <inertial>
+            <origin xyz="-0.15928 -0.043074 -0.15883" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="JX_02" type="continuous">
+        <origin xyz="0.16022 -0.15891 0.11523" rpy="1.5708 0 0" />
+        <parent link="BASE_LINK" />
+        <child link="LB_LINK" />
+        <axis xyz="0 1 0" />
+        <limit effort="2.9" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+    </joint>
+    <link name="LT_LINK">
+        <inertial>
+            <origin xyz="0.15853 -0.043074 -0.15882" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.1 0.1 0.1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="JX_03" type="continuous">
+        <origin xyz="-0.15759 -0.1589 0.11523" rpy="1.5708 0 0" />
+        <parent link="BASE_LINK" />
+        <child link="LT_LINK" />
+        <axis xyz="0 1 0" />
+        <limit effort="2.9" velocity="870" />
+        <dynamics damping="0.1" friction="0.01" />
+	</joint>
+	<gazebo>
+    <plugin
+		filename="gz-sim-joint-controller-system"
+        name="gz::sim::systems::JointController">
+        <joint_name>JX_00</joint_name>
+        <topic>world/empty/model/fdrone/joint_cmd/JX_00</topic>
+		<use_velocity_commands>true</use_velocity_commands>
+		<cmd_max>1000</cmd_max>
+        <initial_position>-2.0</initial_position>
+    </plugin>
+    <plugin
+		filename="gz-sim-joint-controller-system"
+        name="gz::sim::systems::JointController">
+        <joint_name>JX_01</joint_name>
+        <topic>world/empty/model/fdrone/joint_cmd/JX_01</topic>
+		<use_velocity_commands>true</use_velocity_commands>
+		<cmd_max>1000</cmd_max>
+        <initial_position>-2.0</initial_position>
+    </plugin>
+    <plugin
+		filename="gz-sim-joint-controller-system"
+        name="gz::sim::systems::JointController">
+        <joint_name>JX_02</joint_name>
+        <topic>world/empty/model/fdrone/joint_cmd/JX_02</topic>
+		<use_velocity_commands>true</use_velocity_commands>
+		<cmd_max>1000</cmd_max>
+        <initial_position>-2.0</initial_position>
+    </plugin>
+    <plugin
+		filename="gz-sim-joint-controller-system"
+        name="gz::sim::systems::JointController">
+        <joint_name>JX_03</joint_name>
+        <topic>world/empty/model/fdrone/joint_cmd/JX_03</topic>
+		<use_velocity_commands>true</use_velocity_commands>
+		<cmd_max>1000</cmd_max>
+        <initial_position>-2.0</initial_position>
+    </plugin>
+	</gazebo>
 </robot>

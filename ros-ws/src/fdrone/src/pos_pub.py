@@ -2,12 +2,16 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, Float64
 
 class JointStatePublisher(Node):
     def __init__(self):
         super().__init__('joint_state_publisher')
         self.publisher_ = self.create_publisher(JointState, 'joint_states', 10)
+        self.jpublisher_ = [
+                self.create_publisher(
+                    Float64, 
+                    f'world/empty/model/fdrone/joint_cmd/JX_0{i}', 10) for i in range(4) ]
         self.subscription = self.create_subscription(
             Float64MultiArray,
             'joint_velocities',
@@ -23,6 +27,7 @@ class JointStatePublisher(Node):
 
     def timer_callback(self):
         msg = JointState()
+        float_msg = Float64()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.name = ['JX_00', 'JX_01', 'JX_02', 'JX_03']
         msg.position = self.positions
@@ -30,7 +35,9 @@ class JointStatePublisher(Node):
         msg.effort = []
 
         for i in range(4):
+            float_msg.data = self.velocities[i]
             self.positions[i] += self.velocities[i] * (1.0 / 30.0)
+            self.jpublisher_[i].publish(float_msg)
 
         self.publisher_.publish(msg)
 

@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /TF1
       Splitter Ratio: 0.5
     Tree Height: 250
@@ -47,35 +48,39 @@ Visualization Manager:
       Enabled: true
       Links:
         All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
         BASE_LINK:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        LB_LINK:
+        rotor_0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        LT_LINK:
+        rotor_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        Link Tree Style: Links in Alphabetic Order
-        RB_LINK:
+        rotor_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        RT_LINK:
+        rotor_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Mass Properties:
         Inertia: false
         Mass: false
@@ -93,13 +98,15 @@ Visualization Manager:
         All Enabled: true
         BASE_LINK:
           Value: true
-        LB_LINK:
+        rotor_0:
           Value: true
-        LT_LINK:
+        rotor_1:
           Value: true
-        RB_LINK:
+        rotor_2:
           Value: true
-        RT_LINK:
+        rotor_3:
+          Value: true
+        world:
           Value: true
       Marker Scale: 0.4000000059604645
       Name: TF
@@ -107,15 +114,16 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        BASE_LINK:
-          LB_LINK:
-            {}
-          LT_LINK:
-            {}
-          RB_LINK:
-            {}
-          RT_LINK:
-            {}
+        world:
+          BASE_LINK:
+            rotor_0:
+              {}
+            rotor_1:
+              {}
+            rotor_2:
+              {}
+            rotor_3:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -164,4 +172,4 @@ Window Geometry:
     collapsed: false
   Width: 1199
   X: 360
-  Y: 140
+  Y: 105

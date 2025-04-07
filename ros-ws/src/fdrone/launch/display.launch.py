@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, ExecuteProcess
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
@@ -59,5 +59,40 @@ def generate_launch_description() -> LaunchDescription:
         }.items()
     )
     ld.add_action(ild)
-    
+
+    # gz create
+    gz_node = Node(
+        package='ros_gz_sim',
+        executable='create',
+        name='spawner',
+        output='screen',
+        arguments=[
+            '-name', 'fdrone',
+            '-topic', '/robot_description',
+        ]
+    )
+    ld.add_action(gz_node)
+
+    # gz bridge
+    gz_bridge_node = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        name='gz_bridge',
+        output='screen',
+        parameters=[{'use_sim_time': True}],
+        arguments=[
+            '/world/empty/model/fdrone/joint_cmd/JX_00@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint_cmd/JX_01@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint_cmd/JX_02@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint_cmd/JX_03@std_msgs/msg/Float64@gz.msgs.Double',
+        ]
+    )
+    ld.add_action(gz_bridge_node)
+ 
+    # gz sim
+    gz_sim_node = ExecuteProcess(
+        cmd=['gz', 'sim', '-r', '-v', '4', 'empty.sdf'],
+        output='screen',
+    )
+    ld.add_action(gz_sim_node)
     return ld
