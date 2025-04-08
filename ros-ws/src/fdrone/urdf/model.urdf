@@ -143,10 +143,34 @@
         <dynamics damping="0.01" friction="0.001" />
 	</joint>
 	<gazebo>
+	<plugin
+		filename="gz-sim-joint-state-publisher-system"
+		name="gz::sim::systems::JointStatePublisher">
+		<joint_name>rotor_0_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_0_joint/state</topic>
+	</plugin>
+	<plugin
+		filename="gz-sim-joint-state-publisher-system"
+		name="gz::sim::systems::JointStatePublisher">
+		<joint_name>rotor_1_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_1_joint/state</topic>
+	</plugin>
+	<plugin
+		filename="gz-sim-joint-state-publisher-system"
+		name="gz::sim::systems::JointStatePublisher">
+		<joint_name>rotor_2_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_2_joint/state</topic>
+	</plugin>
+	<plugin
+		filename="gz-sim-joint-state-publisher-system"
+		name="gz::sim::systems::JointStatePublisher">
+		<joint_name>rotor_3_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_3_joint/state</topic>
+	</plugin>
     <plugin
 		filename="gz-sim-joint-controller-system"
         name="gz::sim::systems::JointController">
-        <joint_name>rotor_0_joint</joint_name>
+		<joint_name>rotor_0_joint</joint_name>
 		<topic>world/empty/model/fdrone/joint/rotor_0_joint/cmd_vel</topic>
 		<use_velocity_commands>true</use_velocity_commands>
 		<cmd_max>1000</cmd_max>

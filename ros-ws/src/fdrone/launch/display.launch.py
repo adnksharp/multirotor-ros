@@ -44,7 +44,7 @@ def generate_launch_description() -> LaunchDescription:
         executable='pos_pub.py',
         name='robot_position_publisher',
     )
-    #ld.add_action(jsp_node)
+    ld.add_action(jsp_node)
 
     # Incluir el lanzamiento de urdf_launch, pero sin el joint_state_publisher predeterminado y sin la GUI
     ild: IncludeLaunchDescription = IncludeLaunchDescription(
@@ -80,11 +80,14 @@ def generate_launch_description() -> LaunchDescription:
         output='screen',
         parameters=[{'use_sim_time': True}],
         arguments=[
-            '/world/empty/model/fdrone/joint/rotor_0_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/fdrone/joint/rotor_1_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/fdrone/joint/rotor_2_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/fdrone/joint/rotor_3_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/dynamic_pose/info@geometry_msgs/msg/PoseArray@gz.msgs.Pose_V',
+            '/world/empty/model/fdrone/joint/rotor_0_joint/cmd_vel@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_0_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/world/empty/model/fdrone/joint/rotor_1_joint/cmd_vel@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_1_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/world/empty/model/fdrone/joint/rotor_2_joint/cmd_vel@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_2_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/world/empty/model/fdrone/joint/rotor_3_joint/cmd_vel@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_3_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
         ]
     )
     ld.add_action(gz_bridge_node)

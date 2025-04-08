@@ -32,7 +32,7 @@ class VelocityPublisher(Node):
                 for i in range(4):
                     msg.data = vel[i]
                     self.publisher_[i].publish(msg)
-                self.get_logger().info(f'{msg.data}')
+                self.get_logger().info(f'{vel}')
         except:
             pass
 

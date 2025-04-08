@@ -2,44 +2,55 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-from std_msgs.msg import Float64MultiArray, Float64
+
+names = ['rotor_0_joint', 'rotor_1_joint', 'rotor_2_joint', 'rotor_3_joint']
+positions = [0.0, 0.0, 0.0, 0.0]
+velocities = [0.0, 0.0, 0.0, 0.0]
+efforts = [0.0, 0.0, 0.0, 0.0]
 
 class JointStatePublisher(Node):
     def __init__(self):
-        super().__init__('joint_state_publisher')
-        self.publisher_ = self.create_publisher(JointState, 'joint_states', 10)
-        self.jpublisher_ = [
-                self.create_publisher(
-                    Float64, 
-                    f'world/empty/model/fdrone/joint_cmd/JX_0{i}', 10) for i in range(4) ]
-        self.subscription = self.create_subscription(
-            Float64MultiArray,
-            'joint_velocities',
-            self.velocity_callback,
-            10)
-        timer_period = 1.0 / 30.0  # 30 Hz
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.positions = [0.0, 0.0, 0.0, 0.0]
-        self.velocities = [0.0, 0.0, 0.0, 0.0]
+        super().__init__('robot_joint_position_publisher')
+        self.publisher_ = self.create_publisher(
+                JointState, 
+                'joint_states', 
+                10)
 
-    def velocity_callback(self, msg):
-        self.velocities = msg.data
+        self.subscription = [ self.create_subscription(
+            JointState,
+            f'/world/empty/model/fdrone/joint/rotor_{i}_joint/state',
+            self.gz_pose_callback,
+            10) for i in range(4) ]
 
-    def timer_callback(self):
-        msg = JointState()
-        float_msg = Float64()
-        msg.header.stamp = self.get_clock().now().to_msg()
-        msg.name = ['JX_00', 'JX_01', 'JX_02', 'JX_03']
-        msg.position = self.positions
-        msg.velocity = self.velocities
-        msg.effort = []
+    def gz_pose_callback(self, msg):
+        global names, positions, velocities, efforts
+        joint_state = JointState()
+        joint_state.header.stamp = self.get_clock().now().to_msg()
+        joint_state.name = names
 
-        for i in range(4):
-            float_msg.data = self.velocities[i]
-            self.positions[i] += self.velocities[i] * (1.0 / 30.0)
-            self.jpublisher_[i].publish(float_msg)
+        match msg.name[0]:
+            case 'rotor_0_joint':
+                positions[0] = msg.position[0]
+                velocities[0] = msg.velocity[0]
+                efforts[0] = msg.effort[0]
+            case 'rotor_1_joint':
+                positions[1] = msg.position[0]
+                velocities[1] = msg.velocity[0]
+                efforts[1] = msg.effort[0]
+            case 'rotor_2_joint':
+                positions[2] = msg.position[0]
+                velocities[2] = msg.velocity[0]
+                efforts[2] = msg.effort[0]
+            case 'rotor_3_joint':
+                positions[3] = msg.position[0]
+                velocities[3] = msg.velocity[0]
+                efforts[3] = msg.effort[0]
 
-        self.publisher_.publish(msg)
+        joint_state.position = positions
+        joint_state.velocity = velocities
+        joint_state.effort = efforts
+        self.publisher_.publish(joint_state)
+        self.get_logger().info(f'{positions}')
 
 def main(args=None):
     rclpy.init(args=args)
