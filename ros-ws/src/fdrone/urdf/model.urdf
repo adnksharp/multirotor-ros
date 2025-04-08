@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="fdrone">
-    <link name="BASE_LINK">
+    <link name="base_link">
         <inertial>
             <origin xyz="0.00093993 0.00072156 8.0388E-05" rpy="0 0 0" />
-            <mass value="0.89737" />
+            <mass value="0.86" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
         <visual>
@@ -22,7 +22,7 @@
             </geometry>
         </collision>
     </link>
-    <link name="RT_LINK">
+    <link name="rotor_0">
         <inertial>
             <origin xyz="0.15852 -0.043074 0.15899" rpy="0 0 0" />
             <mass value="0.01" />
@@ -44,15 +44,15 @@
             </geometry>
         </collision>
     </link>
-    <joint name="JX_00" type="continuous">
+    <joint name="rotor_0_joint" type="continuous">
         <origin xyz="-0.15758 0.15891 0.11523" rpy="1.5708 0 0" />
-        <parent link="BASE_LINK" />
-        <child link="RT_LINK" />
+        <parent link="base_link" />
+        <child link="rotor_0" />
         <axis xyz="0 1 0" />
-        <limit effort="2.9" velocity="870" />
-        <dynamics damping="0.1" friction="0.01" />
+        <limit effort="3000" velocity="8700" />
+        <dynamics damping="0.01" friction="0.001" />
     </joint>
-    <link name="RB_LINK">
+    <link name="rotor_1">
         <inertial>
             <origin xyz="-0.15929 -0.043074 0.15898" rpy="0 0 0" />
             <mass value="0.01" />
@@ -74,15 +74,15 @@
             </geometry>
         </collision>
     </link>
-    <joint name="JX_01" type="continuous">
+    <joint name="rotor_1_joint" type="continuous">
         <origin xyz="0.16023 0.1589 0.11523" rpy="1.5708 0 0" />
-        <parent link="BASE_LINK" />
-        <child link="RB_LINK" />
+        <parent link="base_link" />
+        <child link="rotor_1" />
         <axis xyz="0 1 0" />
-        <limit effort="2.9" velocity="870" />
-        <dynamics damping="0.1" friction="0.01" />
+        <limit effort="3000" velocity="8700" />
+        <dynamics damping="0.01" friction="0.001" />
     </joint>
-    <link name="LB_LINK">
+    <link name="rotor_2">
         <inertial>
             <origin xyz="-0.15928 -0.043074 -0.15883" rpy="0 0 0" />
             <mass value="0.01" />
@@ -104,15 +104,15 @@
             </geometry>
         </collision>
     </link>
-    <joint name="JX_02" type="continuous">
+    <joint name="rotor_2_joint" type="continuous">
         <origin xyz="0.16022 -0.15891 0.11523" rpy="1.5708 0 0" />
-        <parent link="BASE_LINK" />
-        <child link="LB_LINK" />
+        <parent link="base_link" />
+        <child link="rotor_2" />
         <axis xyz="0 1 0" />
-        <limit effort="2.9" velocity="870" />
-        <dynamics damping="0.1" friction="0.01" />
+        <limit effort="3000" velocity="8700" />
+        <dynamics damping="0.01" friction="0.001" />
     </joint>
-    <link name="LT_LINK">
+    <link name="rotor_3">
         <inertial>
             <origin xyz="0.15853 -0.043074 -0.15882" rpy="0 0 0" />
             <mass value="0.01" />
@@ -134,20 +134,20 @@
             </geometry>
         </collision>
     </link>
-    <joint name="JX_03" type="continuous">
+    <joint name="rotor_3_joint" type="continuous">
         <origin xyz="-0.15759 -0.1589 0.11523" rpy="1.5708 0 0" />
-        <parent link="BASE_LINK" />
-        <child link="LT_LINK" />
+        <parent link="base_link" />
+        <child link="rotor_3" />
         <axis xyz="0 1 0" />
-        <limit effort="2.9" velocity="870" />
-        <dynamics damping="0.1" friction="0.01" />
+        <limit effort="3000" velocity="8700" />
+        <dynamics damping="0.01" friction="0.001" />
 	</joint>
 	<gazebo>
     <plugin
 		filename="gz-sim-joint-controller-system"
         name="gz::sim::systems::JointController">
-        <joint_name>JX_00</joint_name>
-        <topic>world/empty/model/fdrone/joint_cmd/JX_00</topic>
+        <joint_name>rotor_0_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_0_joint/cmd_vel</topic>
 		<use_velocity_commands>true</use_velocity_commands>
 		<cmd_max>1000</cmd_max>
         <initial_position>-2.0</initial_position>
@@ -155,8 +155,8 @@
     <plugin
 		filename="gz-sim-joint-controller-system"
         name="gz::sim::systems::JointController">
-        <joint_name>JX_01</joint_name>
-        <topic>world/empty/model/fdrone/joint_cmd/JX_01</topic>
+        <joint_name>rotor_1_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_1_joint/cmd_vel</topic>
 		<use_velocity_commands>true</use_velocity_commands>
 		<cmd_max>1000</cmd_max>
         <initial_position>-2.0</initial_position>
@@ -164,8 +164,8 @@
     <plugin
 		filename="gz-sim-joint-controller-system"
         name="gz::sim::systems::JointController">
-        <joint_name>JX_02</joint_name>
-        <topic>world/empty/model/fdrone/joint_cmd/JX_02</topic>
+        <joint_name>rotor_2_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_2_joint/cmd_vel</topic>
 		<use_velocity_commands>true</use_velocity_commands>
 		<cmd_max>1000</cmd_max>
         <initial_position>-2.0</initial_position>
@@ -173,8 +173,8 @@
     <plugin
 		filename="gz-sim-joint-controller-system"
         name="gz::sim::systems::JointController">
-        <joint_name>JX_03</joint_name>
-        <topic>world/empty/model/fdrone/joint_cmd/JX_03</topic>
+        <joint_name>rotor_3_joint</joint_name>
+		<topic>world/empty/model/fdrone/joint/rotor_3_joint/cmd_vel</topic>
 		<use_velocity_commands>true</use_velocity_commands>
 		<cmd_max>1000</cmd_max>
         <initial_position>-2.0</initial_position>

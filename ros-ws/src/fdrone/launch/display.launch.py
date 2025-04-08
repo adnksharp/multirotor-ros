@@ -11,7 +11,7 @@ def generate_launch_description() -> LaunchDescription:
     pkg_share = FindPackageShare(package='fdrone')
 
     # Construir rutas de archivos
-    default_model_path = PathJoinSubstitution(['urdf', 'model.urdf'])
+    default_model_path = PathJoinSubstitution([pkg_share, 'urdf', 'model.urdf'])
     default_rviz_path = PathJoinSubstitution([pkg_share, 'rviz', 'urdf.rviz'])
 
     # Argumento para habilitar/deshabilitar GUI
@@ -39,13 +39,12 @@ def generate_launch_description() -> LaunchDescription:
     ld.add_action(model_arg)
 
 
-    # Agregar tu nodo joint_state_publisher personalizado
     jsp_node = Node(
         package='fdrone',
         executable='pos_pub.py',
-        name='joint_state_publisher'
+        name='robot_position_publisher',
     )
-    ld.add_action(jsp_node)
+    #ld.add_action(jsp_node)
 
     # Incluir el lanzamiento de urdf_launch, pero sin el joint_state_publisher predeterminado y sin la GUI
     ild: IncludeLaunchDescription = IncludeLaunchDescription(
@@ -54,7 +53,7 @@ def generate_launch_description() -> LaunchDescription:
             'urdf_package': 'fdrone',
             'urdf_package_path': LaunchConfiguration('model'),
             'rviz_config': LaunchConfiguration('rvizconfig'),
-            'jsp_gui': LaunchConfiguration('gui'),  # Usar el argumento 'gui' para desactivar la GUI
+            'jsp_gui': LaunchConfiguration('gui'),
             'use_jsp': 'false'
         }.items()
     )
@@ -77,14 +76,15 @@ def generate_launch_description() -> LaunchDescription:
     gz_bridge_node = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        name='gz_bridge',
+        name='robot_gz_bridge',
         output='screen',
         parameters=[{'use_sim_time': True}],
         arguments=[
-            '/world/empty/model/fdrone/joint_cmd/JX_00@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/fdrone/joint_cmd/JX_01@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/fdrone/joint_cmd/JX_02@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/fdrone/joint_cmd/JX_03@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_0_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_1_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_2_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/fdrone/joint/rotor_3_joint/cmd_vel@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/dynamic_pose/info@geometry_msgs/msg/PoseArray@gz.msgs.Pose_V',
         ]
     )
     ld.add_action(gz_bridge_node)
