@@ -17,7 +17,7 @@ install(
 )
 
 install(PROGRAMS
-	src/get_pub.py
+	src/pos_get.py
 	src/vel_pub.py
 	DESTINATION lib/${PROJECT_NAME}
 )
