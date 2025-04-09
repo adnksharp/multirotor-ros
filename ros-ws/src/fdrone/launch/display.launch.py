@@ -41,7 +41,7 @@ def generate_launch_description() -> LaunchDescription:
 
     jsp_node = Node(
         package='fdrone',
-        executable='pos_pub.py',
+        executable='get_pub.py',
         name='robot_position_publisher',
     )
     ld.add_action(jsp_node)
