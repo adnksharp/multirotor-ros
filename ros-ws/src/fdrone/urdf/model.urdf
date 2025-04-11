@@ -9,7 +9,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/BASELINK.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.5 0.1 0.1 1" />
@@ -18,7 +18,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/BASELINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/BASELINK.STL" />
             </geometry>
         </collision>
     </link>
@@ -31,7 +31,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/RTLINK.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.1 0.1 0.1 1" />
@@ -40,7 +40,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RTLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/RTLINK.STL" />
             </geometry>
         </collision>
     </link>
@@ -61,7 +61,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/RBLINK.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.1 0.1 0.1 1" />
@@ -70,7 +70,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/RBLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/RBLINK.STL" />
             </geometry>
         </collision>
     </link>
@@ -91,7 +91,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/LBLINK.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.1 0.1 0.1 1" />
@@ -100,7 +100,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LBLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/LBLINK.STL" />
             </geometry>
         </collision>
     </link>
@@ -121,7 +121,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/LTLINK.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.1 0.1 0.1 1" />
@@ -130,7 +130,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file:///home/akey/Unix/projects/networks/ros-ws/src/fdrone/urdf/meshes/LTLINK.STL" />
+                <mesh filename="file://$(find fdrone)/urdf/meshes/LTLINK.STL" />
             </geometry>
         </collision>
     </link>
