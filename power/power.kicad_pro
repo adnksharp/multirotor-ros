@@ -505,7 +505,7 @@
       "plot": "../img/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../src/complete/power.stl",
       "svg": "",
       "vrml": ""
     },
