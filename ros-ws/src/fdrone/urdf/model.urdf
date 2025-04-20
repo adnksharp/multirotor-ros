@@ -2,12 +2,12 @@
 <robot name="fdrone">
     <link name="base_link">
         <inertial>
-            <origin xyz="0.00093993 0.00072156 8.0388E-05" rpy="0 0 0" />
-            <mass value="0.86" />
+            <origin xyz="0 0 0.09" rpy="0 0 0" />
+            <mass value="1.20" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="-0.0013 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/BASELINK.STL" />
             </geometry>
@@ -16,7 +16,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="-0.0013 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/BASELINK.STL" />
             </geometry>
@@ -24,12 +24,12 @@
     </link>
     <link name="rotor_0">
         <inertial>
-            <origin xyz="0.15852 -0.043074 0.15899" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.01" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/RTLINK.STL" />
             </geometry>
@@ -38,28 +38,28 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/RTLINK.STL" />
             </geometry>
         </collision>
     </link>
     <joint name="rotor_0_joint" type="continuous">
-        <origin xyz="-0.15758 0.15891 0.11523" rpy="1.5708 0 0" />
+        <origin xyz="-0.1589 0.1589 0.13673" rpy="1.5708 0 0" />
         <parent link="base_link" />
         <child link="rotor_0" />
         <axis xyz="0 1 0" />
-        <limit effort="3000" velocity="8700" />
+        <limit effort="1e6" velocity="8700" />
         <dynamics damping="0.01" friction="0.001" />
     </joint>
     <link name="rotor_1">
         <inertial>
-            <origin xyz="-0.15929 -0.043074 0.15898" rpy="0 0 0" />
+			<origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.01" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/RBLINK.STL" />
             </geometry>
@@ -68,28 +68,28 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/RBLINK.STL" />
             </geometry>
         </collision>
     </link>
     <joint name="rotor_1_joint" type="continuous">
-        <origin xyz="0.16023 0.1589 0.11523" rpy="1.5708 0 0" />
+        <origin xyz="0.1589 0.1589 0.13673" rpy="1.5708 0 0" />
         <parent link="base_link" />
         <child link="rotor_1" />
         <axis xyz="0 1 0" />
-        <limit effort="3000" velocity="8700" />
+        <limit effort="1e6" velocity="8700" />
         <dynamics damping="0.01" friction="0.001" />
     </joint>
     <link name="rotor_2">
         <inertial>
-            <origin xyz="-0.15928 -0.043074 -0.15883" rpy="0 0 0" />
+			<origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.01" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/LBLINK.STL" />
             </geometry>
@@ -98,28 +98,28 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/LBLINK.STL" />
             </geometry>
         </collision>
     </link>
     <joint name="rotor_2_joint" type="continuous">
-        <origin xyz="0.16022 -0.15891 0.11523" rpy="1.5708 0 0" />
+        <origin xyz="0.1589 -0.1589 0.13673" rpy="1.5708 0 0" />
         <parent link="base_link" />
         <child link="rotor_2" />
         <axis xyz="0 1 0" />
-        <limit effort="3000" velocity="8700" />
+        <limit effort="1e6" velocity="8700" />
         <dynamics damping="0.01" friction="0.001" />
     </joint>
     <link name="rotor_3">
         <inertial>
-            <origin xyz="0.15853 -0.043074 -0.15882" rpy="0 0 0" />
+			<origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.01" />
             <inertia ixx="0.013314" ixy="-1.3492E-05" ixz="-1.4686E-05" iyy="0.02478" iyz="-1.493E-06" izz="0.013456" />
         </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/LTLINK.STL" />
             </geometry>
@@ -128,18 +128,18 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 -0.012 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="file://$(find fdrone)/urdf/meshes/LTLINK.STL" />
             </geometry>
         </collision>
     </link>
     <joint name="rotor_3_joint" type="continuous">
-        <origin xyz="-0.15759 -0.1589 0.11523" rpy="1.5708 0 0" />
+        <origin xyz="-0.1589 -0.1589 0.13673" rpy="1.5708 0 0" />
         <parent link="base_link" />
         <child link="rotor_3" />
         <axis xyz="0 1 0" />
-        <limit effort="3000" velocity="8700" />
+        <limit effort="1e6" velocity="8700" />
         <dynamics damping="0.01" friction="0.001" />
 	</joint>
 	<gazebo>
