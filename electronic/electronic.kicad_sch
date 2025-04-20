@@ -7,9 +7,7 @@
 	(title_block
 		(title "Squematico de la plataforma")
 		(date "11/03/25")
-		(comment 1 "Christian  Jair Rodríguez Vázquez 202353")
-		(comment 2 "Duran Chacón Jazmin Andrea 192738, Fernanda Alemir Castañeda Huerta 192771")
-		(comment 3 "José Carlos Arriaga Lopez 157558, Adan Rodrigo De La Cruz Osorio 192637")
+		(comment 1 "157558, 192637, 192738, 19277, 202353")
 	)
 	(lib_symbols
 		(symbol "+3.3V_1"

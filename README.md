@@ -1,290 +1,85 @@
 # Multirotor-ROS
 
-![](https://i.imgur.com/7XxNan8.png)
+| ![](img/preview.png) |
+|---|
 
 Plataforma de adquisición de datos de un multirotor con ESP32 y ROS2
 
-## Requisitos
+## Software y Hardware 
 
 <details>
-  <summary>Paquetes</summary>
+    <summary>Software</summary>
 
-  ```shell
-  sudo apt install gedit curl git python3-pip clang software-properties-common wget power-profiles-daemon
-  ```
-</details>
-
-<details>
-  <summary>ROS2</summary>
-
-  ```shell
-  sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-  sudo apt update ; sudo apt upgrade
-  sudo apt install -y \
-  python3-flake8-blind-except \
-  python3-flake8-class-newline \
-  python3-flake8-deprecated \
-  python3-mypy \
-  python3-pip \
-  python3-pytest \
-  python3-pytest-cov \
-  python3-pytest-mock \
-  python3-pytest-repeat \
-  python3-pytest-rerunfailures \
-  python3-pytest-runner \
-  python3-pytest-timeout \
-  python3-colcon-common-extensions \
-  ros-dev-tools \
-  ```
-
-  #### Ubuntu 24
-  ```shell
-  sudo apt install ros-jazzy-desktop
-  ```
-
-  #### Ubuntu 22
-  ```shell
-  sudo apt install ros-humble-desktop
-  ```
-
-  #### Ubuntu 20
-  ```shell
-  sudo apt install ros-foxy-desktop
-  ```
-</details>
-
-<details>
-  <summary>Shortcuts</summary>
-
-  ### Bash
-
-  ```shell
-  gedit ~/.bashrc
-  ```
-
-  Agregar las siguientes líneas al final del archivo
-  ```shell
-  run-ros() 
-  {
-     export ROS_DOMAIN_ID=21
-     export ROS_VERSION=2
-     export ROS_PYTHON_VERSION=3
-     export ROS_DISTRO=jazzy
-     source /opt/ros/jazzy/setup.bash
-  }
-
-  run-uros() 
-  {
-	 export ROS_DOMAIN_ID=21
-	 export ROS_VERSION=2
-	 export ROS_PYTHON_VERSION=3
-	 export ROS_DISTRO=jazzy
-	 source /opt/ros/jazzy/setup.bash
-	 source ~/uros-ws/install/local_setup.bash
-  }
-  ```
-
-  > Reemplazar `jazzy` por la versión de ROS2 que se tenga instalada
-
-  ### Zsh
-
-  ```shell
-  gedit ~/.zshrc
-  ```
-
-  Agregar las siguientes líneas al final del archivo
-  ```shell
-  run-ros() 
-  {
-     export ROS_DOMAIN_ID=49
-     export ROS_VERSION=2
-     export ROS_PYTHON_VERSION=3
-     export ROS_DISTRO=jazzy
-     source /opt/ros/jazzy/setup.zsh
-  }
-
-  run-uros() 
-  {
-     export ROS_DOMAIN_ID=49
-	 export ROS_VERSION=2
-	 export ROS_PYTHON_VERSION=3
-	 export ROS_DISTRO=jazzy
-	 source /opt/ros/jazzy/setup.zsh
-	 source ~/uros-ws/install/local_setup.zsh
-  }
-  ```
-</details>
-
-<details>
-  <summary>gazebo</summary>
-
-   #### Ubuntu 24
-  ```shell
-  sudo apt-get install ros-${ROS_DISTRO}-ros-gz
-  ```
-
-</details>
-
-<details>
-  <summary>uROS</summary>
-
-  ```shell
-  run-ros
-  mkdir ~/uros-ws
-  cd ~/uros-ws
-  git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_setup.git src/micro_ros_setup
-  sudo apt update && rosdep update
-  rosdep install --from-paths src --ignore-src -y
-  colcon build
-  ```
-
-  ### Bash
-
-  ```shell
-  source ~/uros-ws/install/local_setup.bash
-  ros2 run micro_ros_setup create_agent_ws.sh
-  ros2 run micro_ros_setup build_agent.sh
-  source install/local_setup.bash
-  ```
-
-  ### Zsh
-
-  ```shell
-  source ~/uros-ws/install/local_setup.zsh
-  ros2 run micro_ros_setup create_agent_ws.sh
-  ros2 run micro_ros_setup build_agent.sh
-  source install/local_setup.bash
-  ```
-
-</details>
-
-<details>
-  <summary>Arduino</summary>
-
-  ### Arduino IDE
-  ```shell
-  sudo add-apt-repository ppa:flatpak/stable
-  sudo apt update ; sudo apt upgrade
-  sudo apt install flatpak gnome-software-plugin-flatpak
-  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  flatpak install flathub cc.arduino.IDE2
-  sudo usermod -a -G dialout $USER
-  ```
-
-  Instalar `esp32 by Espressif` desde el gestor de tarjetas de Arduino
-  ![](https://i.imgur.com/3CAvWoM.png)
-
-  > [!NOTE]
-  > Agregar la librería `Adafruit_Sensor` desde el gestor de librerías de Arduino
-
-</details>
-
-<details>
-  <summary>Librería `uROS` para Arduino</summary>
-
-  ```shell
-  run-ros
-  git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_arduino.git ~/Arduino/libraries/micro_ros_arduino
-  ```
-</details>
-
-## Software y Hardware Utilizado
-
-* ESP32 WROOM 32 DevKit
-* MPU6050
-* [ROS2 Jazzy](https://aur.archlinux.org/packages/ros2-jazzy-base)
+* [ROS2 Jazzy](https://index.ros.org/p/desktop_full/#jazzy)
+* [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/getstarted/)
 * [uROS Jazzy](https://github.com/micro-ROS/micro_ros_setup/tree/jazzy)
 * [uROS Arduino Jazzy](https://github.com/micro-ROS/micro_ros_arduino/tree/jazzy)
+* [KiCad](https://www.kicad.org)
 
-## Clonar Repositorio
+</details>
+
+<details>
+    <summary>Componentes electrónicos</summary>
+
+* 1 [ESP-WROOM-32 Devkit](https://www.amazon.com/-/es/ESP32-DevKitC-ESP32-WROOM-32-ESP32-WROVER/dp/B07W6F2Z3K)
+* 1 Módulo IMU [MPU6050](https://www.amazon.com/-/es/MPU6050-Accelerometer-Gyroscope-Module-Arduino/dp/B00KQK8X2A)
+* 1 Módulo GPS [NEO-6M](https://www.amazon.com/-/es/NEO-6M-GPS-Module-For-Arduino/dp/B00KQK8X2A)
+* 1 Sensor de temp. y humedad [DHT22](https://www.amazon.com/-/es/DHT11-Temperature-Humidity-Sensor-Arduino/dp/B00KQK8X2A)
+* 1 Resistencia de 10KΩ
+* 1 Módulo [BMP280](https://www.amazon.com/-/es/BME280-Temperature-Humidity-Barometric-Pressure/dp/B00KQK8X2A)
+* 4 Módulos sensores de distancia [HC-SR04](https://www.amazon.com/-/es/HC-SR04-Ultrasonic-Distance-Transducer-Arduino/dp/B00KQK8X2A)
+* 1 Pantalla [OLED 0.96"](https://www.amazon.com/-/es/0-96-Inch-OLED-Display-Arduino/dp/B00KQK8X2A)
+* 4 Motores brushless [1000KV](https://www.amazon.com/-/es/Brushless-Motor-1000KV-Drone-Quadcopter/dp/B00KQK8X2A)
+* 4 Controladores de velocidad [(ESC) 30A](https://www.amazon.com/-/es/Brushless-Controller-30A-Quadcopter-Multicopter/dp/B00KQK8X2A)
+* 1 Batería LiPo [2S 4Ah](https://www.amazon.com/-/es/LiPo-Battery-2200mAh-3S-11-1V/dp/B00KQK8X2A)
+* 1 Powerbank [30A 3.7V](https://www.amazon.com/-/es/Power-Bank-3-7V-30A/dp/B00KQK8X2A)
+
+</details>
+
+<details>
+    <summary>Componentes mecánicos</summary>
+
+* 1 Chasis de multirotor [F450](https://www.amazon.com/-/es/F450-Quadcopter-Frame-Kit-Quadcopter/dp/B00KQK8X2A)
+* 4 Hélices [1045](https://www.amazon.com/-/es/1045-Propeller-Quadcopter-Multicopter-Drone/dp/B00KQK8X2A)
+* Piezas impresas en 3D
+
+</details>
+
+## Instalación
+Es posible instalar el software de [ROS2](https://docs.ros.org/en/jazzy/index.html), [Gazebo](https://gazebosim.org/docs/harmonic/install/) y [micro-ROS](https://micro.ros.org/docs/tutorials/core/overview/) siguiendo los pasos de la documentación oficial o con el script de instalación [install-ros.sh](./src/install-ros.sh):
 
 ```shell
-mkdir ~/Proyectos
-cd ~/Proyectos
-git clone https://github.com/adnksharp/multirotor-ros.git
+$SHELL ./src/install-ros.sh
 ```
 
-## Construir el workspace de ROS2
+![](img/shell-install.svg)
+
+## Espacio de trabajo (ROS2)
+[ros-ws](ros-ws) es el espacio de trabajo de ROS2 donde se compila el paquete `fdrone` usando para visualizar y simular el multirotor en Gazebo.
 
 ```shell
-run-ros
-cd ~/Proyectos/multirotor-ros/ros-ws
+cd ros-ws
 colcon build
 ```
 
-<details>
-  <summary>Bash</summary>
+### Lanzador
+El lanzador `display.launch.py` se encarga de visualizar el modelo en RVIZ y Gazebo.
 
 ```shell
-source install/setup.bash
- ```
-
-</details>
-
-<details>
-  <summary>Zsh</summary>
-
-```shell
-source install/setup.zsh
- ```
-
-</details>
-
-## Lanzar gazebo
-
-```shell
-ros2 launch fdrone gazebo.launch.py
+source install/setup.$(echo $SHELL | awk -F '/' '{print $NF}')
+ros2 launch fdrone display.launch.py
 ```
 
-<!--
-## Compilar sketch de Arduino
-
-`Ctrl + O` para abrir el archivo `~/Proyectos/multirotor-ros/ino/talk/talk.ino` desde la IDE de Arduino
-
-> [!WARNING]
-> Actualmente solo las versiones `iron` y `humble` de `uROS` están actualizadas a la versión `2.0.7`, es posible que la IDE de Arduino recomiende actualizar la librería `uROS` a esa versión.
-> Ignorar la actualización y compilar el sketch.
-
-### Configuración de la tarjeta
-Crear un archivo en la carpeta `~/Proyectos/multirotor-ros/ino/talk/` con el nombre
-`wificfg.h` y agregar las siguientes líneas
-
-```cpp
-char* ssid = "NOMBRE_DE_LA_RED_WIFI";
-char* pass = "CONTRASEÑA_DE_LA_RED_WIFI";
-char* host = "IP_DE_LA_PC_DONDE_SE_EJECUTA_ROS2";
-int port = 8888;
-```
-
-### Compilar y subir sketch
-
-![](https://i.imgur.com/K5Q0o10.png)
-
-## Ejecutar el agente de uROS
+### Interfaz de usuario
+El script `vel_put.py` se desarrolló para enviar velocidades al multirotor desde la terminal enviando valores de tipo `Float64` a tópicos puenteados entre ROS2 y Gazebo.
 
 ```shell
-run-uros
-run micro_ros_agent micro_ros_agent udp4 --port 8888
+source install/setup.$(echo $SHELL | awk -F '/' '{print $NF}')
+ros2 run fdrone vel_put.py
 ```
 
-![](img/out1.svg)
+## Electrónica
+[electronic](electronic) y [power](power) son los esquemas eléctricos de la PCB principal y la batería respectivamente. La PCB principal se encarga de conectar todos los sensores y módulos al ESP32; la PCB de la batería se encarga de conectar la batería a los ESC y las señales PWM del ESP32 a los ESC para controlar la velocidad de los motores.
 
-## Ejecutar el nodo de escucha de ROS2
-
-### Bash
-```shell
-run-ros
-source ~/Proyectos/multirotor-ros/ros-ws/install/setup.bash
-ros2 run main listener
-```
-
-### Zsh
-```shell
-run-ros
-source ~/Proyectos/multirotor-ros/ros-ws/install/setup.zsh
-ros2 run main listener
-```
-
-![](img/out2.svg)
--->
+| ![](<img/electronic PCB 3D.png>) | ![](<img/power PCB 3D.png>) |
+|---|---|
