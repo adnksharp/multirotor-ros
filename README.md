@@ -79,7 +79,7 @@ ros2 run fdrone vel_put.py
 ```
 
 ## Electrónica
-[electronic](electronic) y [power](power) son los esquemas eléctricos de la PCB principal y la batería respectivamente. La PCB principal se encarga de conectar todos los sensores y módulos al ESP32; la PCB de la batería se encarga de conectar la batería a los ESC y las señales PWM del ESP32 a los ESC para controlar la velocidad de los motores.
+[electronic](electronic) contiene el esquema eléctrico de la PCB principal.
 
 | ![](<img/electronic PCB 3D.png>) | ![](<img/power PCB 3D.png>) |
 |---|---|
