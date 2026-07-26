@@ -5,6 +5,7 @@ electronic/libraries
 fp-info-cache
 *.kicad_pcb.lck
 *.kicad_sch.lck
+.history
 
 # wifi settings
 wificfg.h
